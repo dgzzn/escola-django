@@ -1,0 +1,29 @@
+{% extends 'escola/base.html' %}
+
+{% block content %}
+
+<h1>Disciplinas</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Curso</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+{% for disciplina in disciplina_list %}
+        <tr>
+            <td scope="row">{{ disciplina.nome }}</td>
+            <td>{{ disciplina.curso }}</td>
+            <td>alterar/excluir</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
+
+

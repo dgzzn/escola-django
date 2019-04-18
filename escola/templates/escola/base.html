@@ -20,11 +20,17 @@
           aria-expanded="false" aria-label="Toggle navigation"></button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'lista-alunos' %}">Alunos</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="{% url 'lista-cursos' %}">Cursos</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'lista-disciplinas' %}">Disciplinas</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'lista-professores' %}">Professores</a>
               </li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -40,6 +46,11 @@
           </form>
       </div>
   </nav>
+<div class="container-fluid">
+      {% block content %}
+        {% endblock content %}
+</div>
+
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -1,0 +1,29 @@
+{% extends 'escola/base.html' %}
+
+{% block content %}
+
+<h1>Professores</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+{% for professor in professor_list %}
+        <tr>
+            <td scope="row">{{ professor.nome }}</td>
+            <td>{{ professor.email }}</td>
+            <td>alterar/excluir</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
+
+

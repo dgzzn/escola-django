@@ -1,0 +1,29 @@
+{% extends 'escola/base.html' %}
+
+{% block content %}
+
+<h1>Cursos</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Duração</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+{% for curso in curso_list %}
+        <tr>
+            <td scope="row">{{ curso.nome }}</td>
+            <td>{{ curso.duracao }}</td>
+            <td>alterar/excluir</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
+
+

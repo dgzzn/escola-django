@@ -19,5 +19,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-
+    path('alunos/', views.AlunoListView.as_view(), name='lista-alunos'),
+    path('cursos/', views.CursoListView.as_view(), name='lista-cursos'),
+    path('disciplinas/', views.DisciplinaListView.as_view(), name='lista-disciplinas'),
+    path('professores/', views.ProfessorListView.as_view(), name='lista-professores'),
 ]
