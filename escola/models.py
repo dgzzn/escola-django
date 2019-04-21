@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Curso(models.Model):
     nome = models.CharField(max_length=100)
@@ -10,12 +11,16 @@ class Curso(models.Model):
 
 class Aluno(models.Model):
     nome = models.CharField(max_length=100)
-    matricula = models.IntegerField()
+    matricula = models.IntegerField(verbose_name='Matrícula')
     telefone = models.CharField(max_length=20)
     email = models.EmailField()
 
     def __str__(self):
         return self.nome
+
+    def get_absolute_url(self):
+        return reverse("detalhe-aluno", kwargs={"pk": self.pk})
+        
 
 class Disciplina(models.Model):
     nome = models.CharField(max_length=100)

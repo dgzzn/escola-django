@@ -20,6 +20,10 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('alunos/', views.AlunoListView.as_view(), name='lista-alunos'),
+    path('alunos/<int:pk>/', views.AlunoDetailView.as_view(), name='detalhe-aluno'),
+    path('alunos/novo/', views.AlunoCreateView.as_view(), name='novo-aluno'),
+    path('alunos/<int:pk>/editar/', views.AlunoUpdateView.as_view(), name='alterar-aluno'),
+    path('alunos/<int:pk>/excluir/', views.AlunoDeleteView.as_view(), name='excluir-aluno'),
     path('cursos/', views.CursoListView.as_view(), name='lista-cursos'),
     path('disciplinas/', views.DisciplinaListView.as_view(), name='lista-disciplinas'),
     path('professores/', views.ProfessorListView.as_view(), name='lista-professores'),

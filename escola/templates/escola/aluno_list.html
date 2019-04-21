@@ -3,8 +3,8 @@
 {% block content %}
 
 <h1>Alunos</h1>
-
-<table class="table">
+<a name="" id="" class="btn btn-primary" href="{% url 'novo-aluno' %}" role="button">Novo</a><br>
+<table class="table"><br>
     <thead class="thead-dark">
         <tr>
             <th>Nome</th>
@@ -17,9 +17,10 @@
 
 {% for aluno in aluno_list %}
         <tr>
-            <td scope="row">{{ aluno.nome }}</td>
+            <td scope="row"><a href="{% url 'detalhe-aluno' aluno.id %}">{{ aluno.nome }}</a></td>
             <td>{{ aluno.matricula }}</td>
-            <td>alterar/excluir</td>
+            <td><a name="" id="" class="btn btn-primary" href="{% url 'alterar-aluno' aluno.id %}" role="button">Alterar</a>
+            <a name="" id="" class="btn btn-danger" href="{% url 'excluir-aluno' aluno.id %}" role="button">Excluir</a></td>
         </tr>
 {% endfor %}
     </tbody>
