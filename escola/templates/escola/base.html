@@ -20,16 +20,16 @@
           aria-expanded="false" aria-label="Toggle navigation"></button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item">
+              <li class="nav-item {% if request.resolver_match.url_name == 'lista-alunos' %}active{% endif %}" >
                   <a class="nav-link" href="{% url 'lista-alunos' %}">Alunos</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item {% if request.resolver_match.url_name == 'lista-cursos' %}active{% endif %}">
                   <a class="nav-link" href="{% url 'lista-cursos' %}">Cursos</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item {% if request.resolver_match.url_name == 'lista-disciplinas' %}active{% endif %}">
                   <a class="nav-link" href="{% url 'lista-disciplinas' %}">Disciplinas</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item {% if request.resolver_match.url_name == 'lista-professores' %}active{% endif %}">
                   <a class="nav-link" href="{% url 'lista-professores' %}">Professores</a>
               </li>
               <li class="nav-item dropdown">

@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>Disciplinas</h1>
-
+<a name="" id="" class="btn btn-primary" href="{% url 'nova-disciplina' %}" role="button">Nova</a><br>
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -19,7 +19,8 @@
         <tr>
             <td scope="row">{{ disciplina.nome }}</td>
             <td>{{ disciplina.curso }}</td>
-            <td>alterar/excluir</td>
+            <td><a name="" id="" class="btn btn-primary" href="{% url 'alterar-disciplina' disciplina.id %}" role="button">Alterar</a>
+            <a name="" id="" class="btn btn-danger" href="{% url 'excluir-disciplina' disciplina.id %}" role="button">Excluir</a></td>
         </tr>
 {% endfor %}
     </tbody>

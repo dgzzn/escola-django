@@ -7,6 +7,10 @@ class Curso(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def get_absolute_url(self):
+        return reverse("detalhe-curso", kwargs={"pk": self.pk})
+    
     
 
 class Aluno(models.Model):
@@ -28,6 +32,9 @@ class Disciplina(models.Model):
 
     def __str__(self):
         return self.nome
+    
+    def get_absolute_url(self):
+        return reverse("lista-disciplinas")
 
 class Professor(models.Model):
     nome = models.CharField(max_length=100)

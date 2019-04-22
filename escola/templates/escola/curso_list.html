@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>Cursos</h1>
-
+<a name="" id="" class="btn btn-primary" href="{% url 'novo-curso' %}" role="button">Novo</a><br>
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -17,9 +17,10 @@
 
 {% for curso in curso_list %}
         <tr>
-            <td scope="row">{{ curso.nome }}</td>
+            <td scope="row"><a href="{% url 'detalhe-curso' curso.id %}">{{ curso.nome }}</a></td>
             <td>{{ curso.duracao }}</td>
-            <td>alterar/excluir</td>
+            <td><a name="" id="" class="btn btn-primary" href="{% url 'alterar-curso' curso.id %}" role="button">Alterar</a>
+            <a name="" id="" class="btn btn-danger" href="{% url 'excluir-curso' curso.id %}" role="button">Excluir</a></td>
         </tr>
 {% endfor %}
     </tbody>

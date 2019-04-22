@@ -1,0 +1,21 @@
+{% extends 'escola/base.html' %}
+
+
+{% block content %}
+
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Excluir curso</legend>
+            <h2>Tem certeza que deseja excluir o curso {{ curso.nome }}</h2>
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-danger">Sim, exclua.</button>
+            <a class="btn btn-outline-secondary" href="{% url 'detalhe-curso' curso.id %}">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
