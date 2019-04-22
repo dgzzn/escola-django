@@ -45,6 +45,10 @@ class Professor(models.Model):
     def __str__(self):
         return self.nome
 
+    def get_absolute_url(self):
+        return reverse("detalhe-professor", kwargs={"pk": self.pk})
+    
+
 class Turma(models.Model):
     disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE)
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE)

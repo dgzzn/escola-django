@@ -1,0 +1,49 @@
+{% extends 'escola/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-6">
+        <h3 class="card-title">Aluno</h3>
+            <table class="table table-bordered table-hover table-sm">
+                <thead class="thead-info">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Matrícula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for aluno in aluno_list %}
+                    <tr>
+                        <td scope="row">{{aluno.nome}}</td>
+                        <td>{{aluno.matricula}}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+    </div>
+    <div class="col-sm-6">
+        <h3 class="card-title">Professor</h3>
+            <table class="table table-sm table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for professor in professor_list %}
+                    <tr class="table-info">
+                        <td scope="row">{{professor.nome}}</td>
+                        <td>{{professor.email}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</div>
+
+{% endblock content %}
+
+

@@ -4,6 +4,7 @@
 
 <h1>Professores</h1>
 
+<a name="" id="" class="btn btn-primary" href="{% url 'novo-professor' %}" role="button">Novo</a><br><br>
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -17,9 +18,10 @@
 
 {% for professor in professor_list %}
         <tr>
-            <td scope="row">{{ professor.nome }}</td>
+            <td scope="row"><a href="{% url 'detalhe-professor' professor.id %}">{{ professor.nome }}</a></td>
             <td>{{ professor.email }}</td>
-            <td>alterar/excluir</td>
+            <td><a name="" id="" class="btn btn-primary" href="{% url 'alterar-professor' professor.id %}" role="button">Alterar</a>
+            <a name="" id="" class="btn btn-danger" href="{% url 'excluir-professor' professor.id %}" role="button">Excluir</a></td>
         </tr>
 {% endfor %}
     </tbody>

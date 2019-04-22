@@ -18,7 +18,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.IndexView.as_view(), name='index'),
     # alunos
     path('alunos/', views.AlunoListView.as_view(), name='lista-alunos'),
     path('alunos/<int:pk>/', views.AlunoDetailView.as_view(), name='detalhe-aluno'),
@@ -39,4 +39,8 @@ urlpatterns = [
     path('disciplinas/<int:pk>/excluir/', views.DisciplinaDeleteView.as_view(), name='excluir-disciplina'),
     # professores
     path('professores/', views.ProfessorListView.as_view(), name='lista-professores'),
+    path('professores/<int:pk>/', views.ProfessorDetailView.as_view(), name='detalhe-professor'),
+    path('professores/novo/', views.ProfessorCreateView.as_view(), name='novo-professor'),
+    path('professores/<int:pk>/editar/', views.ProfessorUpdateView.as_view(), name='alterar-professor'),
+    path('professores/<int:pk>/excluir/', views.ProfessorDeleteView.as_view(), name='excluir-professor'),
 ]

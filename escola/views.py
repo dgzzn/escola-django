@@ -7,8 +7,15 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'escola/base.html', {})
+class IndexView(ListView):
+    model = Aluno
+    template_name = 'escola/index.html'
+
+    def get_context_data(self, **kwargs):
+         context = super(IndexView, self).get_context_data(**kwargs)
+         # context['Aluno'] = Aluno.objects.all()
+         context['professor_list'] = Professor.objects.order_by('nome')[:5]
+         return context
 
 #aluno
 class AlunoListView(ListView):
@@ -71,3 +78,18 @@ class DisciplinaDeleteView(DeleteView):
 
 class ProfessorListView(ListView):
     model = Professor
+
+class ProfessorDetailView(DetailView):
+    model = Professor
+
+class ProfessorCreateView(CreateView):
+    model = Professor
+    fields = ['nome', 'cpf', 'telefone', 'email']
+
+class ProfessorUpdateView(UpdateView):
+    model = Professor
+    fields = ['nome', 'cpf', 'telefone', 'email']
+
+class ProfessorDeleteView(DeleteView):
+    model = Professor
+    success_url = reverse_lazy('lista-professores')
