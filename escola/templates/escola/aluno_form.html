@@ -18,3 +18,15 @@
 </div>
 
 {% endblock content %}
+
+{% block scripts %}
+<script>
+
+$(function(){
+    $('#id_nome').change(function(){
+        $('#id_matricula').val('12345');
+    });
+})
+</script>
+
+{% endblock scripts %}
